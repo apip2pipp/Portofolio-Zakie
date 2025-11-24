@@ -64,46 +64,46 @@ const certificates = [
 ];
 ---
 
-<section id="certificates" class="py-20 bg-white">
+<section id="certificates" class="py-20 bg-white text-gray-900 dark:bg-secondary-950 dark:text-gray-100 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-gray-900 mb-4">Sertifikasi</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Sertifikasi</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
         Koleksi sertifikasi profesional yang telah saya peroleh untuk meningkatkan keahlian dan kredibilitas
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {certificates.map((cert) => (
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+        <div class="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 dark:bg-secondary-900/60 dark:border-secondary-800 dark:shadow-2xl dark:hover:shadow-primary-900/40">
           <!-- Certificate Image -->
-          <div class="h-48 bg-gradient-to-br from-primary-400 to-secondary-500 flex items-center justify-center relative">
-            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+          <div class="h-48 bg-gradient-to-br from-primary-200 via-primary-400 to-secondary-300 relative flex items-center justify-center dark:from-primary-500 dark:via-primary-700 dark:to-secondary-900">
+            <div class="absolute inset-0 bg-black/20 dark:bg-black/30"></div>
             <div class="relative z-10 text-center text-white">
-              <svg class="w-16 h-16 mx-auto mb-2 opacity-90" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-16 h-16 mx-auto mb-2 opacity-100" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
               </svg>
               <p class="text-sm font-medium">Sertifikat Resmi</p>
             </div>
             <!-- Badge -->
-            <div class="absolute top-4 right-4 bg-white bg-opacity-90 rounded-full px-2 py-1">
-              <span class="text-xs font-semibold text-gray-700">{cert.date}</span>
+            <div class="absolute top-4 right-4 bg-white/90 text-gray-800 rounded-full px-2 py-1 border border-gray-200 dark:bg-secondary-950/80 dark:text-primary-200 dark:border-secondary-700">
+              <span class="text-xs font-semibold">{cert.date}</span>
             </div>
           </div>
 
           <!-- Certificate Content -->
           <div class="p-6">
             <div class="mb-4">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">{cert.title}</h3>
-              <p class="text-sm text-gray-600 mb-1">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{cert.title}</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">
                 <span class="font-medium">Diterbitkan oleh:</span> {cert.issuer}
               </p>
-              <p class="text-sm text-gray-500">
+              <p class="text-sm text-gray-500 dark:text-gray-400">
                 <span class="font-medium">ID:</span> {cert.credentialId}
               </p>
             </div>
 
-            <p class="text-gray-600 text-sm mb-4">{cert.description}</p>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">{cert.description}</p>
 
             <!-- Action Buttons -->
             <div class="flex space-x-3">
@@ -111,11 +111,11 @@ const certificates = [
                 href={cert.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="flex-1 bg-primary-600 text-white text-center py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium"
+                class="flex-1 bg-primary-600 text-white text-center py-2 px-4 rounded-lg hover:bg-primary-500 transition-colors text-sm font-medium dark:bg-primary-500 dark:text-secondary-950 dark:hover:bg-primary-400"
               >
                 Verifikasi
               </a>
-              <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium">
+              <button class="px-4 py-2 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium dark:border-secondary-700 dark:text-gray-200 dark:hover:bg-secondary-800">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
@@ -128,25 +128,25 @@ const certificates = [
 
     <!-- Additional Info -->
     <div class="mt-16 text-center">
-      <div class="bg-gray-50 rounded-xl p-8 max-w-4xl mx-auto">
-        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Komitmen Terhadap Pembelajaran</h3>
-        <p class="text-gray-600 mb-6">
+      <div class="bg-gray-50 rounded-xl p-8 max-w-4xl mx-auto border border-gray-100 dark:bg-secondary-900 dark:border-secondary-800">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Komitmen Terhadap Pembelajaran</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-6">
           Saya percaya bahwa pembelajaran adalah proses yang berkelanjutan. Setiap sertifikasi yang saya peroleh 
           tidak hanya menambah kredibilitas, tetapi juga memastikan bahwa saya selalu mengikuti perkembangan 
           teknologi terbaru dan best practices dalam industri.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="text-center">
-            <div class="text-3xl font-bold text-primary-600 mb-2">6+</div>
-            <div class="text-gray-600">Sertifikasi Profesional</div>
+            <div class="text-3xl font-bold text-primary-600 dark:text-primary-300 mb-2">6+</div>
+            <div class="text-gray-600 dark:text-gray-300">Sertifikasi Profesional</div>
           </div>
           <div class="text-center">
-            <div class="text-3xl font-bold text-primary-600 mb-2">3+</div>
-            <div class="text-gray-600">Tahun Pengalaman</div>
+            <div class="text-3xl font-bold text-primary-600 dark:text-primary-300 mb-2">3+</div>
+            <div class="text-gray-600 dark:text-gray-300">Tahun Pengalaasdaman</div>
           </div>
           <div class="text-center">
-            <div class="text-3xl font-bold text-primary-600 mb-2">100%</div>
-            <div class="text-gray-600">Komitmen Pembelajaran</div>
+            <div class="text-3xl font-bold text-primary-600 dark:text-primary-300 mb-2">100%</div>
+            <div class="text-gray-600 dark:text-gray-300">Komitmen Pembelajaran</div>
           </div>
         </div>
       </div>

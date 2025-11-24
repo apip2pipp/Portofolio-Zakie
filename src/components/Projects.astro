@@ -1,5 +1,6 @@
 ---
 // Projects component
+import ShowcaseWall from './react/ShowcaseWall';
 const projects = [
   {
     id: 1,
@@ -64,42 +65,43 @@ const projects = [
 ];
 ---
 
-<section id="projects" class="py-20 bg-gray-50">
+<section id="projects" class="py-20 bg-gray-50 text-gray-900 dark:bg-secondary-900 dark:text-gray-100 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-gray-900 mb-4">Proyek Saya</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Proyek Saya</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
         Koleksi proyek-proyek yang telah saya kembangkan, mulai dari aplikasi web hingga mobile app
       </p>
     </div>
 
     <!-- Featured Projects -->
-    <div class="mb-16">
-      <h3 class="text-2xl font-semibold text-gray-900 mb-8 text-center">Proyek Unggulan</h3>
+    <div class="mb-16 relative">
+      <ShowcaseWall client:load />
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center">Proyek Unggulan</h3>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {projects.filter(project => project.featured).map((project) => (
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-primary-400 to-secondary-500 flex items-center justify-center">
-              <svg class="w-16 h-16 text-white opacity-80" fill="currentColor" viewBox="0 0 20 20">
+          <div class="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 dark:bg-secondary-950/70 dark:border-secondary-800 dark:shadow-2xl dark:hover:shadow-primary-900/40">
+            <div class="h-48 bg-gradient-to-br from-primary-200 via-primary-400 to-secondary-300 dark:from-primary-500 dark:via-primary-700 dark:to-secondary-900 flex items-center justify-center">
+              <svg class="w-16 h-16 text-white opacity-90" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
               </svg>
             </div>
             <div class="p-6">
-              <h4 class="text-xl font-semibold text-gray-900 mb-2">{project.title}</h4>
-              <p class="text-gray-600 mb-4">{project.description}</p>
+              <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{project.title}</h4>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
               <div class="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech) => (
-                  <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-sm">{tech}</span>
+                  <span class="px-2 py-1 bg-secondary-100 text-secondary-800 rounded text-sm dark:bg-secondary-800 dark:text-secondary-100">{tech}</span>
                 ))}
               </div>
               <div class="flex space-x-4">
-                <a href={project.github} class="flex items-center text-primary-600 hover:text-primary-700 font-medium">
+                <a href={project.github} class="flex items-center text-primary-600 hover:text-primary-500 font-medium dark:text-primary-300 dark:hover:text-primary-200">
                   <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd" />
                   </svg>
                   GitHub
                 </a>
-                <a href={project.demo} class="flex items-center text-secondary-600 hover:text-secondary-700 font-medium">
+                <a href={project.demo} class="flex items-center text-secondary-600 hover:text-primary-600 font-medium dark:text-secondary-200 dark:hover:text-primary-200">
                   <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
@@ -114,31 +116,31 @@ const projects = [
 
     <!-- All Projects -->
     <div>
-      <h3 class="text-2xl font-semibold text-gray-900 mb-8 text-center">Semua Proyek</h3>
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center">Semua Proyek</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (
-          <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-            <div class="h-40 bg-gradient-to-br from-primary-400 to-secondary-500 flex items-center justify-center">
-              <svg class="w-12 h-12 text-white opacity-80" fill="currentColor" viewBox="0 0 20 20">
+          <div class="bg-white border border-gray-100 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 dark:bg-secondary-950/60 dark:border-secondary-800 dark:shadow-lg dark:hover:shadow-primary-900/40">
+            <div class="h-40 bg-gradient-to-br from-secondary-200 via-primary-400 to-primary-500 dark:from-secondary-900 dark:via-primary-700 dark:to-primary-500 flex items-center justify-center">
+              <svg class="w-12 h-12 text-white opacity-90" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
               </svg>
             </div>
             <div class="p-4">
-              <h4 class="text-lg font-semibold text-gray-900 mb-2">{project.title}</h4>
-              <p class="text-gray-600 text-sm mb-3">{project.description}</p>
+              <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{project.title}</h4>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">{project.description}</p>
               <div class="flex flex-wrap gap-1 mb-3">
                 {project.technologies.slice(0, 3).map((tech) => (
-                  <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">{tech}</span>
+                  <span class="px-2 py-1 bg-secondary-100 text-secondary-800 rounded text-xs dark:bg-secondary-800 dark:text-secondary-100">{tech}</span>
                 ))}
                 {project.technologies.length > 3 && (
-                  <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">+{project.technologies.length - 3}</span>
+                  <span class="px-2 py-1 bg-secondary-100 text-secondary-800 rounded text-xs dark:bg-secondary-800 dark:text-secondary-100">+{project.technologies.length - 3}</span>
                 )}
               </div>
               <div class="flex space-x-3">
-                <a href={project.github} class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+                <a href={project.github} class="text-primary-600 hover:text-primary-500 text-sm font-medium dark:text-primary-300 dark:hover:text-primary-200">
                   GitHub
                 </a>
-                <a href={project.demo} class="text-secondary-600 hover:text-secondary-700 text-sm font-medium">
+                <a href={project.demo} class="text-secondary-600 hover:text-primary-600 text-sm font-medium dark:text-secondary-200 dark:hover:text-primary-200">
                   Demo
                 </a>
               </div>

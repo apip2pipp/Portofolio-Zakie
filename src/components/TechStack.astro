@@ -68,29 +68,29 @@ const techStacks = [
 ];
 ---
 
-<section id="tech-stack" class="py-20 bg-gray-50">
+<section id="tech-stack" class="py-20 bg-gray-50 text-gray-900 dark:bg-secondary-900 dark:text-gray-100 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-gray-900 mb-4">Tech Stack</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Tech Stack</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
         Teknologi dan tools yang saya gunakan untuk mengembangkan solusi digital yang berkualitas
       </p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       {techStacks.map((stack) => (
-        <div class="bg-white rounded-xl shadow-lg p-8">
-          <h3 class="text-2xl font-semibold text-gray-900 mb-6 text-center">{stack.category}</h3>
+        <div class="bg-white border border-gray-100 rounded-xl shadow-lg p-8 backdrop-blur dark:bg-secondary-950/60 dark:border-secondary-800 dark:shadow-2xl">
+          <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 text-center">{stack.category}</h3>
           <div class="space-y-4">
             {stack.technologies.map((tech) => (
               <div class="group">
                 <div class="flex justify-between items-center mb-2">
-                  <span class="text-sm font-medium text-gray-700">{tech.name}</span>
-                  <span class="text-sm text-gray-500">{tech.level}%</span>
+                  <span class="text-sm font-medium text-gray-700 dark:text-gray-200">{tech.name}</span>
+                  <span class="text-sm text-gray-500 dark:text-gray-400">{tech.level}%</span>
                 </div>
-                <div class="w-full bg-gray-200 rounded-full h-2">
-                  <div 
-                    class={`h-2 rounded-full transition-all duration-1000 ease-out ${tech.color}`}
+                <div class="w-full bg-gray-200 dark:bg-secondary-800 rounded-full h-2">
+                  <div
+                    class="h-2 rounded-full transition-all duration-1000 ease-out bg-gradient-to-r from-primary-600 to-primary-400 shadow-lg shadow-primary-300/30 dark:from-primary-500 dark:to-primary-300 dark:shadow-primary-900/30"
                     style={`width: ${tech.level}%`}
                   ></div>
                 </div>
@@ -103,132 +103,59 @@ const techStacks = [
 
     <!-- Technology Icons Grid -->
     <div class="mt-16">
-      <h3 class="text-2xl font-semibold text-gray-900 mb-8 text-center">Teknologi yang Saya Kuasai</h3>
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center">Teknologi yang Saya Kuasai</h3>
       <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6">
         <!-- Frontend Technologies -->
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-blue-500 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">R</span>
+        {['R','V','N','TS','T','N','P','M','P','A','D','G'].map((label, index) => (
+          <div key={label + index} class="bg-white border border-gray-100 rounded-lg p-4 shadow hover:shadow-lg transition-shadow text-center group dark:bg-secondary-950/50 dark:border-secondary-800 dark:shadow-lg dark:hover:shadow-primary-900/30">
+            <div class="w-12 h-12 mx-auto mb-2 bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center dark:bg-secondary-900/80 dark:border-secondary-700">
+              <span class="text-primary-600 dark:text-primary-200 font-bold text-sm">{label}</span>
+            </div>
+            <span class="text-xs text-gray-500 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-gray-200">
+              {['React','Vue.js','Next.js','TypeScript','Tailwind','Node.js','Python','MongoDB','PostgreSQL','AWS','Docker','Git'][index]}
+            </span>
           </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">React</span>
-        </div>
-        
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-green-500 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">V</span>
-          </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">Vue.js</span>
-        </div>
-
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-gray-800 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">N</span>
-          </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">Next.js</span>
-        </div>
-
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-blue-600 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">TS</span>
-          </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">TypeScript</span>
-        </div>
-
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-cyan-500 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">T</span>
-          </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">Tailwind</span>
-        </div>
-
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-green-600 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">N</span>
-          </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">Node.js</span>
-        </div>
-
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-yellow-500 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">P</span>
-          </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">Python</span>
-        </div>
-
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-green-500 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">M</span>
-          </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">MongoDB</span>
-        </div>
-
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-blue-700 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">P</span>
-          </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">PostgreSQL</span>
-        </div>
-
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-orange-500 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">A</span>
-          </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">AWS</span>
-        </div>
-
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-blue-500 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">D</span>
-          </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">Docker</span>
-        </div>
-
-        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center group">
-          <div class="w-12 h-12 mx-auto mb-2 bg-orange-600 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">G</span>
-          </div>
-          <span class="text-xs text-gray-600 group-hover:text-gray-900">Git</span>
-        </div>
+        ))}
       </div>
     </div>
 
     <!-- Learning Journey -->
     <div class="mt-16">
-      <div class="bg-white rounded-xl shadow-lg p-8">
-        <h3 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Perjalanan Pembelajaran</h3>
+      <div class="bg-white border border-gray-100 rounded-xl shadow-lg p-8 dark:bg-secondary-950/60 dark:border-secondary-800 dark:shadow-2xl">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 text-center">Perjalanan Pembelajaran</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="text-center">
-            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 border border-primary-200 dark:bg-primary-900/40 dark:border-primary-700">
+              <svg class="w-8 h-8 text-primary-500 dark:text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
             </div>
-            <h4 class="text-lg font-semibold text-gray-900 mb-2">Continuous Learning</h4>
-            <p class="text-gray-600 text-sm">
+            <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Continuous Learning</h4>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">
               Selalu mengikuti perkembangan teknologi terbaru melalui kursus online, dokumentasi resmi, dan praktik langsung
             </p>
           </div>
           
           <div class="text-center">
-            <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4 border border-secondary-200 dark:bg-secondary-900/50 dark:border-secondary-700">
+              <svg class="w-8 h-8 text-secondary-700 dark:text-secondary-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
               </svg>
             </div>
-            <h4 class="text-lg font-semibold text-gray-900 mb-2">Hands-on Practice</h4>
-            <p class="text-gray-600 text-sm">
+            <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Hands-on Practice</h4>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">
               Menerapkan pengetahuan melalui proyek nyata dan eksperimen dengan teknologi baru untuk memahami implementasinya
             </p>
           </div>
           
           <div class="text-center">
-            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 border border-primary-200 dark:bg-primary-900/40 dark:border-primary-700">
+              <svg class="w-8 h-8 text-primary-500 dark:text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <h4 class="text-lg font-semibold text-gray-900 mb-2">Community Engagement</h4>
-            <p class="text-gray-600 text-sm">
+            <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Community Engagement</h4>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">
               Berpartisipasi dalam komunitas developer, berbagi pengetahuan, dan belajar dari pengalaman developer lain
             </p>
           </div>
