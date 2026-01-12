@@ -49,15 +49,26 @@
     // Preload critical images
     const criticalImages = [
       '/profileMagang/profile_magang.PNG',
+      // Featured Projects
       '/projects/ClockIN.png',
       '/projects/DomPay.png',
       '/projects/NexaHost.png',
+      // All Projects
+      '/AllProjects/Accreditation.png',
+      '/AllProjects/Analisis Sentimen Ulasan Aplikasi.png',
+      '/AllProjects/SakuRapi.png',
+      '/AllProjects/Classification BMLP.png',
+      '/AllProjects/TicTacToe.png',
+      '/AllProjects/UI Design Ecommerce.png',
+      '/AllProjects/Sibeta.png',
+      '/AllProjects/DoEntry.png',
+      '/AllProjects/Design UI Logo.png',
     ];
 
     let loadedCount = 0;
     const totalImages = criticalImages.length;
-    const minDisplayTime = 2500; // Minimum 2.5 detik
-    const maxDisplayTime = 6000; // Maximum 6 detik
+    const minDisplayTime = 3000; // Minimum 3 detik (lebih banyak gambar)
+    const maxDisplayTime = 8000; // Maximum 8 detik
     const startTime = Date.now();
 
     // Update progress bar
