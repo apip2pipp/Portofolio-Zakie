@@ -2,48 +2,29 @@
 // Projects component
 import ShowcaseWall from './react/ShowcaseWall';
 const projects = [
+  // Featured Projects - folder /projects/
   {
     id: 1,
     title: "Accreditation System For JTI",
     description: "Platform e-commerce modern dengan fitur lengkap termasuk payment gateway, inventory management, dan analytics dashboard.",
     image: "/projects/Accreditation.png",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe API"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    technologies: ["Laravel", "Node.js", "Mysql", "Laravel Sanctum"],
+    github: "https://github.com/apip2pipp/Sistem_akreditasi_PBL",
+    demo: null,
     featured: true
   },
   {
     id: 2,
-    title: "ClcokIN - Employee Attendance Application",
+    title: "ClockIN - Employee Attendance Application",
     description: "Aplikasi manajemen tugas dengan real-time collaboration, drag-and-drop interface, dan notification system.",
     image: "/projects/ClockIN.png",
-    technologies: ["Vue.js", "Express.js", "Socket.io", "PostgreSQL"],
+    technologies: ["Laravel", "Filament", "Mysql", "Tailwind CSS"],
     github: "https://github.com",
     demo: "https://demo.com",
     featured: true
   },
   {
     id: 3,
-    title: "Weather Dashboard",
-    description: "Dashboard cuaca interaktif dengan prediksi akurat, maps integration, dan data historis.",
-    image: "/projects/SakuRapi.png",
-    technologies: ["Next.js", "TypeScript", "Chart.js", "OpenWeather API"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: false
-  },
-  {
-    id: 4,
-    title: "Social Media Analytics",
-    description: "Tool analisis media sosial dengan sentiment analysis, engagement metrics, dan reporting otomatis.",
-    image: "/projects/Accreditation.png",
-    technologies: ["Python", "Django", "TensorFlow", "Redis"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: false
-  },
-  {
-    id: 5,
     title: "Mobile Banking App",
     description: "Aplikasi mobile banking dengan fitur transfer, pembayaran, dan investasi dengan keamanan tinggi.",
     image: "/projects/SakuRapi.png",
@@ -52,14 +33,95 @@ const projects = [
     demo: "https://demo.com",
     featured: true
   },
+  // All Projects - folder /AllProjects/
+  {
+    id: 4,
+    title: "Weather Dashboard",
+    description: "Dashboard cuaca interaktif dengan prediksi akurat, maps integration, dan data historis.",
+    image: "/AllProjects/Design UI Logo.png",
+    technologies: ["Next.js", "TypeScript", "Chart.js", "OpenWeather API"],
+    github: "https://github.com",
+    demo: "https://demo.com",
+    featured: false
+  },
+  {
+    id: 5,
+    title: "Social Media Analytics",
+    description: "Tool analisis media sosial dengan sentiment analysis, engagement metrics, dan reporting otomatis.",
+    image: "/AllProjects/Analisis Sentimen Ulasan Aplikasi.png",
+    technologies: ["Python", "Django", "TensorFlow", "Redis"],
+    github: "https://github.com",
+    demo: "https://demo.com",
+    featured: false
+  },
   {
     id: 6,
     title: "Learning Management System",
     description: "Platform pembelajaran online dengan video streaming, quiz interaktif, dan progress tracking.",
-    image: "/projects/ClockIN.png",
+    image: "/AllProjects/Sibeta.png",
     technologies: ["Angular", "NestJS", "MySQL", "AWS S3"],
     github: "https://github.com",
     demo: "https://demo.com",
+    featured: false
+  },
+  {
+    id: 7,
+    title: "Classification BMLP System",
+    description: "Sistem klasifikasi menggunakan Backpropagation Multi-Layer Perceptron untuk analisis data.",
+    image: "/AllProjects/Classification BMLP.png",
+    technologies: ["Python", "TensorFlow", "NumPy", "Scikit-learn"],
+    github: "https://github.com",
+    demo: "https://demo.com",
+    featured: false
+  },
+  {
+    id: 8,
+    title: "TicTacToe Game",
+    description: "Game TicTacToe interaktif dengan AI opponent dan multiplayer mode.",
+    image: "/AllProjects/TicTacToe.png",
+    technologies: ["JavaScript", "React", "CSS3", "AI Algorithm"],
+    github: "https://github.com",
+    demo: "https://demo.com",
+    featured: false
+  },
+  {
+    id: 9,
+    title: "E-Commerce UI Design",
+    description: "Desain UI modern untuk aplikasi e-commerce dengan user experience yang optimal.",
+    image: "/AllProjects/UI Design Ecommerce.png",
+    technologies: ["Figma", "Adobe XD", "UI/UX", "Prototyping"],
+    github: "https://github.com",
+    demo: "https://demo.com",
+    featured: false
+  },
+  {
+    id: 10,
+    title: "Project Title 10",
+    description: "Deskripsi project Anda di sini. Jelaskan fitur dan tujuan dari project ini.",
+    image: "/AllProjects/placeholder.png",
+    technologies: ["Tech1", "Tech2", "Tech3", "Tech4"],
+    github: "https://github.com",
+    demo: null,
+    featured: false
+  },
+  {
+    id: 11,
+    title: "Project Title 11",
+    description: "Deskripsi project Anda di sini. Jelaskan fitur dan tujuan dari project ini.",
+    image: "/AllProjects/placeholder.png",
+    technologies: ["Tech1", "Tech2", "Tech3", "Tech4"],
+    github: "https://github.com",
+    demo: null,
+    featured: false
+  },
+  {
+    id: 12,
+    title: "Project Title 12",
+    description: "Deskripsi project Anda di sini. Jelaskan fitur dan tujuan dari project ini.",
+    image: "/AllProjects/placeholder.png",
+    technologies: ["Tech1", "Tech2", "Tech3", "Tech4"],
+    github: "https://github.com",
+    demo: null,
     featured: false
   }
 ];
@@ -67,7 +129,7 @@ const projects = [
 
 <section id="projects" class="py-20 bg-gray-50 text-gray-900 dark:bg-secondary-900 dark:text-gray-100 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
+    <div class="text-center mb-16 animate-fade-in-up">
       <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">My Project</h2>
       <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
         A collection of projects I have developed, ranging from data mining projects to web and mobile apps.
@@ -77,34 +139,36 @@ const projects = [
     <!-- Featured Projects -->
     <div class="mb-16 relative">
       <ShowcaseWall client:load />
-      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center">Featured Project</h3>
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center animate-fade-in-up animation-delay-200">Featured Project</h3>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {projects.filter(project => project.featured).map((project) => (
-          <div class="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 dark:bg-secondary-950/70 dark:border-secondary-800 dark:shadow-2xl dark:hover:shadow-primary-900/40">
+        {projects.filter(project => project.featured).map((project, index) => (
+          <div class="project-card bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-500 dark:bg-secondary-950/70 dark:border-secondary-800 dark:shadow-2xl dark:hover:shadow-primary-900/40" style={`animation-delay: ${index * 150}ms`}>
             <div class="h-48 bg-gradient-to-br from-primary-200 via-primary-400 to-secondary-300 dark:from-primary-500 dark:via-primary-700 dark:to-secondary-900 overflow-hidden">
-              <img src={project.image} alt={project.title} class="w-full h-full object-cover" />
+              <img src={project.image} alt={project.title} class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
             </div>
             <div class="p-6">
               <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{project.title}</h4>
               <p class="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
               <div class="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech) => (
-                  <span class="px-2 py-1 bg-secondary-100 text-secondary-800 rounded text-sm dark:bg-secondary-800 dark:text-secondary-100">{tech}</span>
+                  <span class="px-2 py-1 bg-secondary-100 text-secondary-800 rounded text-sm dark:bg-secondary-800 dark:text-secondary-100 hover:scale-110 transition-transform duration-200">{tech}</span>
                 ))}
               </div>
               <div class="flex space-x-4">
-                <a href={project.github} class="flex items-center text-primary-600 hover:text-primary-500 font-medium dark:text-primary-300 dark:hover:text-primary-200">
+                <a href={project.github} class="flex items-center text-primary-600 hover:text-primary-500 font-medium dark:text-primary-300 dark:hover:text-primary-200 hover:translate-x-1 transition-transform duration-200">
                   <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd" />
                   </svg>
                   GitHub
                 </a>
-                <a href={project.demo} class="flex items-center text-secondary-600 hover:text-primary-600 font-medium dark:text-secondary-200 dark:hover:text-primary-200">
-                  <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                  Demo
-                </a>
+                {project.demo && (
+                  <a href={project.demo} class="flex items-center text-secondary-600 hover:text-primary-600 font-medium dark:text-secondary-200 dark:hover:text-primary-200 hover:translate-x-1 transition-transform duration-200">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    Demo
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -114,31 +178,33 @@ const projects = [
 
     <!-- All Projects -->
     <div>
-      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center">All Projects</h3>
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center animate-fade-in-up animation-delay-400">All Projects</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project) => (
-          <div class="bg-white border border-gray-100 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 dark:bg-secondary-950/60 dark:border-secondary-800 dark:shadow-lg dark:hover:shadow-primary-900/40">
+        {projects.map((project, index) => (
+          <div class="project-card bg-white border border-gray-100 rounded-lg shadow hover:shadow-lg hover:scale-105 transition-all duration-500 dark:bg-secondary-950/60 dark:border-secondary-800 dark:shadow-lg dark:hover:shadow-primary-900/40" style={`animation-delay: ${index * 100}ms`}>
             <div class="h-40 bg-gradient-to-br from-secondary-200 via-primary-400 to-primary-500 dark:from-secondary-900 dark:via-primary-700 dark:to-primary-500 overflow-hidden">
-              <img src={project.image} alt={project.title} class="w-full h-full object-cover" />
+              <img src={project.image} alt={project.title} class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
             </div>
             <div class="p-4">
               <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{project.title}</h4>
               <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">{project.description}</p>
               <div class="flex flex-wrap gap-1 mb-3">
                 {project.technologies.slice(0, 3).map((tech) => (
-                  <span class="px-2 py-1 bg-secondary-100 text-secondary-800 rounded text-xs dark:bg-secondary-800 dark:text-secondary-100">{tech}</span>
+                  <span class="px-2 py-1 bg-secondary-100 text-secondary-800 rounded text-xs dark:bg-secondary-800 dark:text-secondary-100 hover:scale-110 transition-transform duration-200">{tech}</span>
                 ))}
                 {project.technologies.length > 3 && (
                   <span class="px-2 py-1 bg-secondary-100 text-secondary-800 rounded text-xs dark:bg-secondary-800 dark:text-secondary-100">+{project.technologies.length - 3}</span>
                 )}
               </div>
               <div class="flex space-x-3">
-                <a href={project.github} class="text-primary-600 hover:text-primary-500 text-sm font-medium dark:text-primary-300 dark:hover:text-primary-200">
+                <a href={project.github} class="text-primary-600 hover:text-primary-500 text-sm font-medium dark:text-primary-300 dark:hover:text-primary-200 hover:translate-x-1 transition-transform duration-200">
                   GitHub
                 </a>
-                <a href={project.demo} class="text-secondary-600 hover:text-primary-600 text-sm font-medium dark:text-secondary-200 dark:hover:text-primary-200">
-                  Demo
-                </a>
+                {project.demo && (
+                  <a href={project.demo} class="text-secondary-600 hover:text-primary-600 text-sm font-medium dark:text-secondary-200 dark:hover:text-primary-200 hover:translate-x-1 transition-transform duration-200">
+                    Demo
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -147,3 +213,60 @@ const projects = [
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+    opacity: 0;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+    opacity: 0;
+  }
+
+  .project-card {
+    animation: fadeInScale 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Smooth hover effects */
+  .project-card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  /* Stagger animation for project cards */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up,
+    .project-card {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>
