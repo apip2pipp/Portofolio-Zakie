@@ -9,18 +9,20 @@ export default function AnimatedProfile() {
     const profile = profileRef.current;
     if (!profile) return;
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let profileX = 0;
-    let profileY = 0;
+    let rotateX = 0;
+    let rotateY = 0;
+    let currentRotateX = 0;
+    let currentRotateY = 0;
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = profile.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
       
-      mouseX = (e.clientX - centerX) / 30;
-      mouseY = (e.clientY - centerY) / 30;
+      // Calculate rotation based on mouse position relative to card center
+      // Inverted for natural tilt effect
+      rotateY = ((e.clientX - centerX) / rect.width) * 20; // Max 20deg rotation
+      rotateX = -((e.clientY - centerY) / rect.height) * 20;
 
       // For spotlight effect
       setMousePos({
@@ -29,22 +31,30 @@ export default function AnimatedProfile() {
       });
     };
 
+    const handleMouseLeave = () => {
+      rotateX = 0;
+      rotateY = 0;
+    };
+
     const animate = () => {
-      profileX += (mouseX - profileX) * 0.1;
-      profileY += (mouseY - profileY) * 0.1;
+      // Smooth interpolation
+      currentRotateX += (rotateX - currentRotateX) * 0.1;
+      currentRotateY += (rotateY - currentRotateY) * 0.1;
       
       if (profile && !isPressed) {
-        profile.style.transform = `translate(${profileX}px, ${profileY}px)`;
+        profile.style.transform = `perspective(1000px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
       }
       
       requestAnimationFrame(animate);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    profile.addEventListener('mousemove', handleMouseMove);
+    profile.addEventListener('mouseleave', handleMouseLeave);
     animate();
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      profile.removeEventListener('mousemove', handleMouseMove);
+      profile.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [isPressed]);
 
@@ -179,7 +189,7 @@ export default function AnimatedProfile() {
 
         /* Pressed state */
         .glass-card.pressed {
-          transform: scale(0.96) translateZ(-30px) rotateX(2deg);
+          transform: perspective(1000px) scale(0.96) !important;
           box-shadow: 
             0 10px 30px rgba(0, 0, 0, 0.5),
             inset 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -195,7 +205,6 @@ export default function AnimatedProfile() {
 
         /* Hover effects */
         .glass-card:hover {
-          transform: scale(1.03) translateZ(20px) rotateX(-2deg);
           box-shadow: 
             0 25px 70px rgba(74, 222, 128, 0.25),
             0 0 0 1px rgba(74, 222, 128, 0.3),
