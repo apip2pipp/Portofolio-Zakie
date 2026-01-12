@@ -26,7 +26,8 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const splash = document.getElementById('splash-screen');
-    const typingText = document.querySelector('.typing-text');
+    const typingText = document.querySelector('.typing-text') as HTMLElement;
+    const loadingProgress = document.querySelector('.loading-progress') as HTMLElement;
     const text = "Web Developer & Designer";
     let index = 0;
 
@@ -42,19 +43,76 @@
     // Start typing after a short delay
     setTimeout(typeWriter, 600);
 
-    // Hide splash screen after animation
-    setTimeout(() => {
-      if (splash) {
-        splash.classList.add('slide-up-exit');
-        setTimeout(() => {
-          splash.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }, 600);
-      }
-    }, 3200);
-
     // Prevent scrolling during splash
     document.body.style.overflow = 'hidden';
+
+    // Preload critical images
+    const criticalImages = [
+      '/profileMagang/profile_magang.PNG',
+      '/projects/ClockIN.png',
+      '/projects/DomPay.png',
+      '/projects/NexaHost.png',
+    ];
+
+    let loadedCount = 0;
+    const totalImages = criticalImages.length;
+    const minDisplayTime = 2500; // Minimum 2.5 detik
+    const maxDisplayTime = 6000; // Maximum 6 detik
+    const startTime = Date.now();
+
+    // Update progress bar
+    const updateProgress = () => {
+      const progress = (loadedCount / totalImages) * 100;
+      if (loadingProgress) {
+        loadingProgress.style.width = `${progress}%`;
+      }
+    };
+
+    // Hide splash screen function
+    const hideSplash = () => {
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+
+      setTimeout(() => {
+        if (splash) {
+          splash.classList.add('slide-up-exit');
+          setTimeout(() => {
+            splash.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }, 600);
+        }
+      }, remainingTime);
+    };
+
+    // Preload images
+    const preloadImages = criticalImages.map(src => {
+      return new Promise<void>((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          loadedCount++;
+          updateProgress();
+          resolve();
+        };
+        img.onerror = () => {
+          loadedCount++; // Count error as loaded to prevent infinite loading
+          updateProgress();
+          resolve();
+        };
+        img.src = src;
+      });
+    });
+
+    // Wait for all images or timeout
+    Promise.race([
+      Promise.all(preloadImages),
+      new Promise<void>(resolve => setTimeout(() => resolve(), maxDisplayTime))
+    ]).then(() => {
+      // Ensure progress is 100% before hiding
+      if (loadingProgress) {
+        loadingProgress.style.width = '100%';
+      }
+      hideSplash();
+    });
   });
 </script>
 
@@ -227,17 +285,9 @@
     height: 100%;
     background: linear-gradient(90deg, #4ade80 0%, #22c55e 50%, #4ade80 100%);
     border-radius: 10px;
-    animation: loading 2.5s ease-in-out forwards;
+    width: 0%;
+    transition: width 0.3s ease-out;
     box-shadow: 0 0 15px rgba(74, 222, 128, 0.6);
-  }
-
-  @keyframes loading {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 100%;
-    }
   }
 
   /* Light theme support */
