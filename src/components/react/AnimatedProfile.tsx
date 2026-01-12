@@ -91,7 +91,10 @@ export default function AnimatedProfile() {
           <div className="w-full h-full rounded-[1.5rem] overflow-hidden shadow-inner-glass">
             <img 
               src="/profileMagang/profile_magang.PNG" 
-              alt="Foto Profile Afif" 
+              alt="Foto Profile Afif"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-cover object-center transition-transform duration-300" 
             />
           </div>
