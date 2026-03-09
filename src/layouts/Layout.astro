@@ -26,6 +26,18 @@ import SplashScreen from '../components/SplashScreen.astro';
 			html {
 				scroll-behavior: smooth;
 			}
+			
+			/* Performance optimization for transitions */
+			* {
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+			
+			/* GPU acceleration for smooth scrolling */
+			body {
+				transform: translateZ(0);
+				-webkit-transform: translateZ(0);
+			}
 		</style>
 		
 		<!-- Lenis Smooth Scroll Library -->
@@ -103,7 +115,7 @@ import SplashScreen from '../components/SplashScreen.astro';
 			})();
 		</script>
 	</head>
-	<body class="bg-white text-gray-900 dark:bg-secondary-950 dark:text-gray-100 font-sans antialiased transition-colors duration-300">
+	<body class="bg-white text-gray-900 dark:bg-secondary-950 dark:text-gray-100 font-sans antialiased transition-colors duration-200">
 		<SplashScreen />
 		<slot />
 	</body>
