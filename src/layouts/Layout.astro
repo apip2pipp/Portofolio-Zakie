@@ -15,7 +15,7 @@ import SplashScreen from '../components/SplashScreen.astro';
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		
 		<meta name="generator" content={Astro.generator} />
-		<title>Zakie Portofolio  UI Designer & Data Science</title>
+		<title>Muhammad Afif Khosyidzaki — UI Designer & Data Science</title>
 		<meta name="description" content="Portofolio web developer Afif - showcasing projects, skills, and achievements" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,9 +44,13 @@ import SplashScreen from '../components/SplashScreen.astro';
 		<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 		
 		<script is:inline>
-			// Initialize Lenis Smooth Scroll
-			window.addEventListener('DOMContentLoaded', function() {
-				const lenis = new Lenis({
+			// Initialize Lenis Smooth Scroll - ONLY after splash screen completes
+			let lenisInstance = null;
+			
+			function initLenis() {
+				if (lenisInstance) return; // Already initialized
+				
+				lenisInstance = new Lenis({
 					duration: 1.2,        // Durasi scroll (lebih tinggi = lebih smooth)
 					easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
 					smooth: true,         // Enable smooth scroll
@@ -55,11 +59,26 @@ import SplashScreen from '../components/SplashScreen.astro';
 
 				// Animation frame untuk smooth scroll
 				function raf(time) {
-					lenis.raf(time);
+					if (lenisInstance) {
+						lenisInstance.raf(time);
+					}
 					requestAnimationFrame(raf);
 				}
 				requestAnimationFrame(raf);
-			});
+			}
+			
+			// Wait for splash screen to complete
+			window.addEventListener('splashComplete', function() {
+				initLenis();
+			}, { once: true });
+			
+			// Fallback: Initialize after 10s if splash event not fired
+			setTimeout(function() {
+				if (!lenisInstance) {
+					console.warn('Splash did not complete, initializing Lenis anyway');
+					initLenis();
+				}
+			}, 10000);
 		</script>
 		
 		<!-- Scroll Reveal Animation Script -->
