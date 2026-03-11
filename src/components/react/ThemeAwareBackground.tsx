@@ -4,8 +4,17 @@ import FaultyTerminal from './FaultyTerminal';
 
 export default function ThemeAwareBackground() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Detect mobile device
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     // Get initial theme
     const root = document.documentElement;
     const initialTheme = root.dataset.theme === 'light' ? 'light' : 'dark';
@@ -26,12 +35,20 @@ export default function ThemeAwareBackground() {
       attributeFilter: ['data-theme']
     });
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
+
+  // Skip rendering expensive backgrounds on mobile
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Only render FaultyTerminal in dark mode */}
+      {/* Only render FaultyTerminal in dark mode on desktop */}
       {theme === 'dark' && (
         <div className="absolute inset-0">
           <FaultyTerminal
@@ -56,9 +73,9 @@ export default function ThemeAwareBackground() {
         </div>
       )}
 
-      {/* Only render OrbitShowcase in light mode */}
+      {/* Only render OrbitShowcase in light mode on desktop */}
       {theme === 'light' && (
-        <div className="absolute inset-0 hidden md:block">
+        <div className="absolute inset-0">
           <OrbitShowcase minimal />
         </div>
       )}
